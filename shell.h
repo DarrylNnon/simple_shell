@@ -5,7 +5,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
-
+#include <sys/wait.h>
 
 void printit(char *string, int format);
 int main(void);
