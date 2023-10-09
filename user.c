@@ -10,7 +10,7 @@ void user_entry(char *input, size_t size)
     {
         if (feof(stdin))
 	{
-            printit("\n");
+            printf("\n");
             exit(EXIT_SUCCESS);
         }
 	else

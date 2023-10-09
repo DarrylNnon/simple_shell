@@ -7,6 +7,7 @@
 #include <unistd.h>
 #include <sys/wait.h>
 
+int _putchar(char c);
 void printit(char *string, int format);
 int main(void);
 void render_prompt(void);

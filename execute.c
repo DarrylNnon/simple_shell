@@ -16,8 +16,12 @@ void run_command(const char *input)
     else if (child_process == 0)
     {
         char command_path[256];
-        snprintf(command_path, sizeof(command_path), "/bin/%s", command);
-        char *args[] = {command, NULL};
+        char *args[2];
+
+        snprintf(command_path, sizeof(command_path), "/bin/%s", input);
+        args[0] = (char *)input;
+        args[1] = NULL;
+
         execve(command_path, args, NULL);
         perror("execve");
         exit(EXIT_FAILURE);
