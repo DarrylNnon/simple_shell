@@ -14,5 +14,8 @@ void render_prompt(void);
 void user_entry(char *input, size_t size);
 void run_command(const char *input);
 void token_input(char *input);
+char *_getline(void);
+char _getline(size_t *size);
+
 
 #endif
