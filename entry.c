@@ -3,7 +3,7 @@
 /**
  * main - is the function used
  * Return: as specified
- * Author: Nnon and Isaac
+ * Authors: Nnon & Isaac
  */
 int main(void)
 {
