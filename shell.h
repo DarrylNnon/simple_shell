@@ -17,7 +17,8 @@ void run_command(const char *input);
 void token_input(char *input);
 char* _getline(size_t *size);
 void handle_arg(char *input, char **args);
-void set_env(char **args);
+int set_env(char **args);
 void set_exit(char **args);
+int unset_env(char **args);
 
 #endif
