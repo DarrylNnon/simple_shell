@@ -1,9 +1,9 @@
 #include "shell.h"
 /**
- * handle_arg - is used to accept arguement
+ * handle_arg - is used to accept arguements
  * @input: is the pointer to the string
  * @args: is the double pointer to the string
- * Author: Nnon and Isaac
+ * Author: Nnon & Isaac
  */
 void handle_arg(char *input, char **args)
 {
