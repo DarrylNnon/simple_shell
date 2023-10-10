@@ -2,7 +2,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+/**
+ * cd_command - change the current working directory based on the provided arguments.
+ * @args: An array of arguments for the cd command.
+ * Authors: Nnon & Isaac
+ */
 void cd_command(char **args)
 {
     char *home_dir;

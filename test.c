@@ -1,7 +1,12 @@
 #include "shell.h"
 #include <string.h>
 #include <stdlib.h>
-
+/**
+ * handle_args - parses the input string into an array of argument
+ * @input: The input string to be parses.
+ * @args: An array to store the parsed arguments.
+ * Authors: Nnon & Isaac
+ */
 void handle_args(char *input, char **args)
 {
     int i = 0, j = 0, k = 0;
