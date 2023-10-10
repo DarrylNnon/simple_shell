@@ -46,7 +46,9 @@ void run_command(const char *input)
     }
     else
     {
+        signal(SIGINT, sigint_handler);
         wait(NULL);
+        signal(SIGINT, SIG_DFL);
     }
 }
 

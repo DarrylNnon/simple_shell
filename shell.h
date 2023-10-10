@@ -8,8 +8,10 @@
 #include <sys/wait.h>
 #include <stdarg.h>
 
+extern char **environ;
+void signal_handler(int sig_num);
 void printit(char *string, int format);
-int _putchar(char c);
+void _putchar(char c);
 int main(void);
 void render_prompt(void);
 void user_entry(char *input, size_t size);
