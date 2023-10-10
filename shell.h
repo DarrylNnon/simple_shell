@@ -11,6 +11,7 @@
 void ls_exe(char **args);
 extern char **environ;
 void signal_handler(int sig_num);
+void env_command();
 void printit(char *string, int format);
 void _putchar(char c);
 int main(void);

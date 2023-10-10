@@ -20,18 +20,39 @@ int main(void)
         {
             set_exit(args);
         }
+	else if (strcmp(args[0], "ls") == 0)
+	{
+		ls_exe(args);
+	}
+        else if (strcmp(args[0], "cd") == 0)
+        {
+            cd_command(args);
+        }
+        else if (strcmp(args[0], "env") == 0)
+        {
+            env_command();
+        }
+        else if (strcmp(args[0], "setenv") == 0)
+        {
+            set_env(args);
+        }
+        else if (strcmp(args[0], "unsetenv") == 0)
+        {
+             unset_env(args);
+        }
         else
         {
-            run_command(input);
+             run_command(input);
         }
-        while (args[i] != NULL)
-       	{
-            free(args[i]);
-            args[i] = NULL;
-	    i++;
-        }
-    }
 
-    return 0;
+        while (args[i] != NULL)
+        {
+             free(args[i]);
+             args[i] = NULL;
+             i++;
+        }
+     }
+
+     return 0;
 }
 
