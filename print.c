@@ -1,5 +1,6 @@
 #include "shell.h"
 #include <unistd.h>
+#include <stdarg.h>
 /**
  * printit - is the function for printing output
  * @string: is the pointer to the string
@@ -8,11 +9,12 @@
  */
 void printit(char *string, int format)
 {
-	int j = 0;
+    int j = 0;
 
-	while (string[j] != '\0')
-	{
-		write(format, &string[j], 1);
-		j++;
-	}
+    while (string[j] != '\0')
+    {
+        write(format, &string[j], 1);
+        j++;
+    }
 }
+
