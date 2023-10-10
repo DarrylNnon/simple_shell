@@ -9,10 +9,14 @@
  */
 void signal_handler(int sig_num)
 {
-    char *msg = "\n Cannot be terminated using Ctrl+C \n";
+    char *msg;
     int j = 0;
+    (void)sig_num;
 
-    signal(SIGINT, sigint_handler);
+    msg = "\n Cannot be terminated using Ctrl+C \n";
+
+
+    signal(SIGINT, signal_handler);
     while (msg[j] != '\0')
     {
         _putchar(msg[j]);

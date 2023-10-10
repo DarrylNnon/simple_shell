@@ -8,7 +8,7 @@
 void run_command(const char *input)
 {
     char arg1[256], arg2[256], arg3[256];
-    char *args[3];
+    char *args[4];
     pid_t child_process;
 
     sscanf(input, "%255s %255s %255s", arg1, arg2, arg3);
@@ -16,6 +16,7 @@ void run_command(const char *input)
     args[0] = arg1;
     args[1] = arg2;
     args[2] = arg3;
+    args[3] = NULL;
 
     if (strcmp(args[0], "setenv") == 0)
     {
@@ -46,7 +47,7 @@ void run_command(const char *input)
     }
     else
     {
-        signal(SIGINT, sigint_handler);
+        signal(SIGINT, signal_handler);
         wait(NULL);
         signal(SIGINT, SIG_DFL);
     }

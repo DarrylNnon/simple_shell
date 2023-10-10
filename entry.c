@@ -15,7 +15,7 @@ int main(void)
     {
         render_prompt();
         user_entry(input, sizeof(input));
-        handle_arg(input, args);
+        handle_args(input, args);
         if (strcmp(args[0], "exit") == 0)
         {
             set_exit(args);
