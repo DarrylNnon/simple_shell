@@ -27,5 +27,6 @@ void handle_arg(char *input, char **args);
 int set_env(char **args);
 void set_exit(char **args);
 int unset_env(char **args);
-
+void handle_pipe(char *command);
+int mode(void);
 #endif

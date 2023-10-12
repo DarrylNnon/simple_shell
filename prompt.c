@@ -5,5 +5,5 @@
  */
 void render_prompt(void)
 {
-    printit("Franklin_Isaac$$ ", STDOUT_FILENO);
+    printit("Franklin_Isaac$$: ", STDOUT_FILENO);
 }

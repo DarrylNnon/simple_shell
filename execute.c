@@ -10,6 +10,7 @@ void run_command(const char *input)
     char arg1[256], arg2[256], arg3[256];
     char *args[4];
     pid_t child_process;
+    char command_path[256];
 
     sscanf(input, "%255s %255s %255s", arg1, arg2, arg3);
 
@@ -29,27 +30,34 @@ void run_command(const char *input)
         return;
     }
 
-    child_process = fork();
 
-    if (child_process == -1)
-    {
-        perror("fork");
-        exit(EXIT_FAILURE);
-    }
-    else if (child_process == 0)
-    {
-        char command_path[256];
+    snprintf(command_path, sizeof(command_path), "/bin/%s", args[0]);
 
-        snprintf(command_path, sizeof(command_path), "/bin/%s", args[0]);
-        execve(command_path, args, NULL);
-        perror("execve");
-        exit(EXIT_FAILURE);
+    if (access(command_path, F_OK) != -1)
+    {
+        child_process = fork();
+
+        if (child_process == -1)
+        {
+            perror("fork");
+            exit(EXIT_FAILURE);
+        }
+        else if (child_process == 0)
+        {
+            execve(command_path, args, NULL);
+            perror("execve");
+            exit(EXIT_FAILURE);
+        }
+        else
+        {
+            signal(SIGINT, signal_handler);
+            wait(NULL);
+            signal(SIGINT, SIG_DFL);
+        }
     }
     else
     {
-        signal(SIGINT, signal_handler);
-        wait(NULL);
-        signal(SIGINT, SIG_DFL);
+        printit("Command does not exist\n", STDOUT_FILENO);
     }
 }
 
