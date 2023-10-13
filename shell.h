@@ -14,6 +14,7 @@ typedef struct Node
 	struct Node* next;
 } Node;
 
+void printu(const char *format, ...);
 Node* create_node(char* data);
 Node* build_path_list();
 void print_list(Node* head);

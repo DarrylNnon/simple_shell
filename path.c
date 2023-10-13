@@ -1,3 +1,4 @@
+#include "shell.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -24,6 +25,13 @@ Node* create_node(char* data)
 Node* build_path_list()
 {
     char* path = getenv("PATH");
+
+    char* start = path;
+    char* end = strchr(start, ':');
+    Node* head = NULL;
+    Node* current = NULL;
+    Node* new_node = create_node(start);
+
     if (path == NULL)
     {
         fprintf(stderr, "Error: PATH environment variable not set\n");
@@ -37,15 +45,9 @@ Node* build_path_list()
         return NULL;
     }
 
-    char* start = path;
-    char* end = strchr(start, ':');
-    Node* head = NULL;
-    Node* current = NULL;
-
     while (end != NULL)
     {
         *end = '\0';
-        Node* new_node = create_node(start);
         if (head == NULL)
 	{
             head = new_node;
@@ -71,7 +73,7 @@ void print_list(Node* head)
     
     while (current != NULL)
     {
-        printit("%s\n", STDOUT_FILENO, current->data);
+        printu("%s\n", STDOUT_FILENO, current->data);
         current = current->next;
     }
 }
