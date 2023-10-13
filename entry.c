@@ -10,13 +10,18 @@ int main(void)
     int i = 0;
     char input[100];
     char *args[100];
+    Node* path_list = build_path_list();
 
     while (1)
     {
         render_prompt();
         user_entry(input, sizeof(input));
         handle_args(input, args);
-        if (strcmp(args[0], "exit") == 0)
+	if (path_list != NULL)
+	{
+		print_list(path_list);
+	}
+	else if (strcmp(args[0], "exit") == 0)
         {
             set_exit(args);
         }

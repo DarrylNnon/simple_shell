@@ -8,6 +8,15 @@
 #include <sys/wait.h>
 #include <stdarg.h>
 
+typedef struct Node
+{
+	char* data;
+	struct Node* next;
+} Node;
+
+Node* create_node(char* data);
+Node* build_path_list();
+void print_list(Node* head);
 void ls_exe(char **args);
 extern char **environ;
 void signal_handler(int sig_num);
