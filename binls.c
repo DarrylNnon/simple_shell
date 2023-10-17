@@ -1,20 +1,30 @@
-#include <stdio.h>
-#include <unistd.h>
+#include "shell.h"
 
 int path_func()
 {
-    char *cmd = "/bin/ls";
-    char *argv[3];
-    argv[0] = "ls";
-    argv[1] = "-l";
-    argv[2] = NULL;
+    pid_t pid = fork();
 
-    char *envp[] = { NULL };
-
-    if (execve(cmd, argv, envp) < 0)
+    if (pid < 0)
     {
-        perror("execve");
+        perror("fork");
         return 1;
+    }
+    else if (pid == 0)
+    {
+        char *cmd = "/bin/ls";
+        char *envp[] = {"PATH=/usr/local/bin:/usr/bin:/bin", NULL};
+        char *argv[] = {"ls", "-l", NULL};
+
+        if (execve(cmd, argv, envp) < 0)
+        {
+            perror("execve");
+            return 1;
+        }
+    }
+    else
+    {
+        int status;
+        waitpid(pid, &status, 0);
     }
 
     return 0;

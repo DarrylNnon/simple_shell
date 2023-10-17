@@ -19,8 +19,12 @@ int main(void)
 	
 	if (strcmp(args[0], "exit") == 0)
         {
-            set_exit(args);
+            set_exit(args[0]);
         }
+	else if (strcmp(args[0], "/bin/ls") == 0)
+	{
+		path_func(args);
+	}
 	else if (strcmp(args[0], "ls") == 0)
 	{
 		ls_exe(args);

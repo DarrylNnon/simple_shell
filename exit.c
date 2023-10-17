@@ -1,23 +1,23 @@
 #include "shell.h"
 /**
  * set_exit - is the function to set builtin exit
- * @args: is the pointer to the array of arguments
+ * @status: is the pointer to the array of arguments
  * Author: Nnon and Isaac
  */
-void set_exit(char **args)
+void set_exit(char *status)
 {
-    int status = 0;
+    int exit_status = 0;
 
-    if (args[1] != NULL)
+    if (status != NULL)
     {
-        status = atoi(args[1]);
-        if (status < 0 || status > 255)
+        exit_status = atoi(status);
+        if (exit_status < 0 || exit_status > 255)
         {
-            printit("Exit status out of range\n", STDERR_FILENO);
-            return;
+            fprintf(stderr, "Exit status out of range\n");
+            exit(EXIT_FAILURE);
         }
     }
-    exit(status);
+    printu("Exiting with status %d\n", exit_status);
+    exit(exit_status);
 }
-
 

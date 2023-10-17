@@ -1,7 +1,4 @@
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "shell.h"
 /**
  * cd_command - change the current working directory based on the provided arguments.
  * @args: An array of arguments for the cd command.

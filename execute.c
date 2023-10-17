@@ -5,7 +5,7 @@
  * @input: is the pointer to the string
  * Author: Nnon and Isaac
  */
-void run_command(const char *input)
+int run_command(const char *input)
 {
     char arg1[256], arg2[256], arg3[256];
     char *args[4];
@@ -22,12 +22,12 @@ void run_command(const char *input)
     if (strcmp(args[0], "setenv") == 0)
     {
         set_env(args);
-        return;
+        return (0);
     }
     else if (strcmp(args[0], "unsetenv") == 0)
     {
         unset_env(args);
-        return;
+        return (0);
     }
 
 
@@ -59,5 +59,6 @@ void run_command(const char *input)
     {
         printit("Command does not exist\n", STDOUT_FILENO);
     }
+    return (0);
 }
 
