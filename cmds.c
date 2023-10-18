@@ -1,16 +1,23 @@
 #include "shell.h"
-void run_commands(char *cmds[MAX_COMMANDS], char *ops[MAX_COMMANDS-1], int num_cmds)
+/**
+ * run_commands - is used to add char to cmds argu
+ * @cmd: is the first pointer to arg
+ * @op: is the second pointer to arg cmd
+ * @num: is the number command input
+ */
+void run_commands(char *cmd[MAX_COMMANDS], char *op[MAX_COMMANDS - 1], int num)
 {
-    int status = run_command(cmds[0]);
-    int i = 1;
+	int status = run_command(cmd[0]);
+	int i = 1;
 
-    while (i < num_cmds)
-    {
-        if ((strcmp(ops[i-1], "&&") == 0 && status == 0) || (strcmp(ops[i-1], "||") == 0 && status != 0))
-       	{
-            status = run_command(cmds[i]);
-        }
-        i++;
-    }
+	while (i < num)
+	{
+		int and_condition = strcmp(op[i - 1], "&&") == 0 && status == 0;
+		int or_condition = strcmp(op[i - 1], "||") == 0 && status != 0;
+
+		if (and_condition || or_condition)
+		{
+			status = run_command(cmd[i]);
+		}
+	}
 }
-

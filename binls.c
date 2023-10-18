@@ -1,38 +1,37 @@
 #include "shell.h"
-
-int path_func()
+/**
+ * path_func - is used to find the path environ
+ * Return: as specified
+ * Author: Nnon and Isaac
+ */
+int path_func(void)
 {
 	pid_t pid = fork();
 
 	if (pid < 0)
 	{
-	perror("fork");
-	return 1
-
+		perror("fork");
+		return (1);
 	}
-
 	else if (pid == 0)
 	{
+		char *cmd = "/bin/ls";
+		char *envp[] = {"PATH=/usr/local/bin:/usr/bin:/bin", NULL};
+		char *argv[] = {"ls", NULL};
 
-	char *cmd = "/bin/ls";
-	char *envp[] = {"PATH=/usr/local/bin:/usr/bin:/bin", NULL};
-	char *argv[] = {"ls", NULL};
-
-	if (execve(cmd, argv, envp) < 0)
-	{
-	perror("execve");
-	return 1;
-	
-	}
+		if (execve(cmd, argv, envp) < 0)
+		{
+			perror("execve");
+			return (1);
+		}
 
 	}
-
 	else
 	{
-	int status;
-	waitpid(pid, &status, 0);
-	}
+		int status;
 
-	return 0;
+		waitpid(pid, &status, 0);
+	}
+	return (0);
 }
 
