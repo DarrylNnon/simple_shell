@@ -13,7 +13,7 @@ int path_func()
     {
         char *cmd = "/bin/ls";
         char *envp[] = {"PATH=/usr/local/bin:/usr/bin:/bin", NULL};
-        char *argv[] = {"ls", "-l", NULL};
+        char *argv[] = {"ls", NULL};
 
         if (execve(cmd, argv, envp) < 0)
         {

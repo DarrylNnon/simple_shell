@@ -10,6 +10,7 @@ int main(void)
     int i = 0;
     char input[100];
     char *args[100];
+    char command [20];
 
     while (1)
     {
@@ -21,6 +22,10 @@ int main(void)
         {
             set_exit(args[0]);
         }
+	else if (strcmp(command, "clear") == 0)
+	{
+		system("clear");
+	}
 	else if (strcmp(args[0], "/bin/ls") == 0)
 	{
 		path_func(args);
