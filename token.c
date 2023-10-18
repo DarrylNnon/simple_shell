@@ -6,34 +6,33 @@
  */
 void token_input(char *input)
 {
-    int i = 0, j = 0, k = 0;
-    char *arg = malloc(strlen(input) + 1);
-    char **tokens = malloc((strlen(input) / 2 + 1) * sizeof(char*));
+	int i = 0, j = 0, k = 0;
+	char *arg = malloc(strlen(input) + 1);
+	char **tokens = malloc((strlen(input) / 2 + 1) * sizeof(char*));
 
-    while (1)
-    {
-        if (input[i] == ' ' || input[i] == '\0')
-       	{
-            arg[j] = '\0';
-            tokens[k++] = strdup(arg);
-            j = 0;
-            if (input[i] == '\0')
-		    break;
-        }
-       	else
-       	{
-            arg[j++] = input[i];
-        }
-        i++;
-    }
-    tokens[k] = NULL;
+	while (1)
+	{
+	if (input[i] == ' ' || input[i] == '\0')
+	{
+		arg[j] = '\0';
+		tokens[k++] = strdup(arg);
+		j = 0;
+		if (input[i] == '\0')
+			break;
+	}
+	else
+	{
+		arg[j++] = input[i];
+	}
+	i++;
+	}
+	tokens[k] = NULL;
 
-    for (i = 0; tokens[i] != NULL; i++)
-    {
-        printf("Token: %s\n", tokens[i]);
-        free(tokens[i]);
-    }
-    free(tokens);
-    free(arg);
+	for (i = 0; tokens[i] != NULL; i++)
+	{
+	printf("Token: %s\n", tokens[i]);
+	free(tokens[i]);
+	}
+	free(tokens);
+	free(arg);
 }
-

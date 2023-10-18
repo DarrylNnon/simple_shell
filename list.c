@@ -1,11 +1,11 @@
 #include "shell.h"
 
-void list_directory()
+void list_directory(void)
 {
-    int result = system("/bin/ls");
-    
-    if (result == -1)
-    {
-        perror("system");
-    }
+	int result = system("/bin/ls");
+
+	if (result == -1)
+	{
+	perror("system");
+	}
 }

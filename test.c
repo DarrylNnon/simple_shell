@@ -9,38 +9,37 @@
  */
 void handle_args(char *input, char **args)
 {
-    int i = 0, j = 0, k = 0;
-    char arg[256];
+	int i = 0, j = 0, k = 0;
+	char arg[256];
 
 
-    memset(arg, 0, sizeof(arg));
+	memset(arg, 0, sizeof(arg));
 
-    while (1)
-    {
-        
-        if (input[i] == ' ' || input[i] == '\0')
-        {
-            if (j > 0)
-            {
-                args[k] = strdup(arg);
-                k++;
-            }
+	while (1)
+	{
 
-       
-            memset(arg, 0, sizeof(arg));
-            j = 0;
+	if (input[i] == ' ' || input[i] == '\0')
+	{
+		if (j > 0)
+	{
+		args[k] = strdup(arg);
+		k++;
+	}
 
-            if (input[i] == '\0')
-                break;
-        }
-        else
-        {
-            arg[j] = input[i];
-            j++;
-        }
+	memset(arg, 0, sizeof(arg));
+	j = 0;
 
-        i++;
-    }
+	if (input[i] == '\0')
+		break;
+	}
+	else
+	{
+		arg[j] = input[i];
+		j++;
+	}
 
-    args[k] = NULL;
+	i++;
+	}
+
+	args[k] = NULL;
 }

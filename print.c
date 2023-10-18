@@ -9,12 +9,12 @@
  */
 void printit(char *string, int format)
 {
-    int j = 0;
+	int j = 0;
 
-    while (string[j] != '\0')
-    {
-        write(format, &string[j], 1);
-        j++;
-    }
+	while (string[j] != '\0')
+	{
+	write(format, &string[j], 1);
+	j++;
+	}
 }
 

@@ -6,18 +6,18 @@
  */
 void set_exit(char *status)
 {
-    int exit_status = 0;
+	int exit_status = 0;
 
-    if (status != NULL)
-    {
-        exit_status = atoi(status);
-        if (exit_status < 0 || exit_status > 255)
-        {
-            fprintf(stderr, "Exit status out of range\n");
-            exit(EXIT_FAILURE);
-        }
-    }
-    printu("Exiting with status %d\n", exit_status);
-    exit(exit_status);
+	if (status != NULL)
+	{
+		exit_status = atoi(status);
+	if (exit_status < 0 || exit_status > 255)
+	{
+		fprintf(stderr, "Exit status out of range\n");
+		exit(EXIT_FAILURE);
+	}
+	}
+	printu("Exiting with status %d\n", exit_status);
+	exit(exit_status);
 }
 
