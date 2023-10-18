@@ -1,7 +1,7 @@
 #include "shell.h"
 /**
  * env_command: prints the environment variables
- * Authors: Nnon & Isaac
+ * Authors: NNon & Isaac
  */
 void env_command()
 {
