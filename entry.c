@@ -1,5 +1,6 @@
 #include "shell.h"
 #include <string.h>
+
 /**
  * main - is the function used
  * Return: as specified
@@ -7,62 +8,62 @@
  */
 int main(void)
 {
-    int i = 0;
-    char input[100];
-    char *args[100];
-    char command [20];
+	int i = 0;
+	char input[100];
+	char *args[100];
 
-    while (1)
-    {
-        render_prompt();
-        user_entry(input, sizeof(input));
-        handle_args(input, args);
-	
-	if (strcmp(args[0], "exit") == 0)
-        {
-            set_exit(args[0]);
-        }
-	else if (strcmp(command, "clear") == 0)
+	while (1)
 	{
-		system("clear");
-	}
-	else if (strcmp(args[0], "/bin/ls") == 0)
-	{
-		path_func(args);
-	}
-	else if (strcmp(args[0], "ls") == 0)
-	{
-		ls_exe(args);
-	}
-        else if (strcmp(args[0], "cd") == 0)
-        {
-            cd_command(args);
-        }
-        else if (strcmp(args[0], "env") == 0)
-        {
-            env_command();
-        }
-        else if (strcmp(args[0], "setenv") == 0)
-        {
-            set_env(args);
-        }
-        else if (strcmp(args[0], "unsetenv") == 0)
-        {
-             unset_env(args);
-        }
-        else
-        {
-             run_command(input);
-        }
+		render_prompt();
+		user_entry(input, sizeof(input));
+		handle_args(input, args);
 
-        while (args[i] != NULL)
-        {
-             free(args[i]);
-             args[i] = NULL;
-             i++;
-        }
-     }
-
-     return 0;
+		if (args[0] != NULL)
+       		{
+			if (strcmp(args[0], "exit") == 0)
+			{
+				set_exit(args[0]);
+			}
+			else if (strcmp(args[0], "clear") == 0)
+			{
+				system("clear");
+			}
+			else if (strcmp(args[0], "/bin/ls") == 0)
+			{
+				path_func(args);
+			}
+			else if (strcmp(args[0], "ls") == 0)
+			{
+				ls_exe(args);
+			}
+			else if (strcmp(args[0], "cd") == 0)
+			{
+				cd_command(args);
+			}
+			else if (strcmp(args[0], "env") == 0)
+			{
+				env_command();
+			}
+			else if (strcmp(args[0], "setenv") == 0)
+			{
+				set_env(args);
+			}
+			else if (strcmp(args[0], "unsetenv") == 0)
+			{
+				unset_env(args);
+			}
+			else
+			{
+				run_command(input);
+			}
+			while (args[i] != NULL)
+			{
+				free(args[i]);
+				args[i] = NULL;
+				i++;
+			}
+		}
+	}
+	return (0);
 }
 
