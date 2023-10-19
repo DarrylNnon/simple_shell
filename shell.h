@@ -50,6 +50,8 @@ void handle_arg(char *input, char **args);
 int set_env(char **args);
 void set_exit(char *status);
 int unset_env(char **args);
+int parse_command(char *command, char *command1, char *command2);
+int create_pipe(int *pipefd);
 void handle_pipe(char *command);
 int mode(void);
 #endif
