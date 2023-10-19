@@ -26,7 +26,7 @@ void execute_builtin(char *args[]);
 int is_builtin(char *args[]);
 void run_cmd(char *cmd[MAX_COMMANDS], char *op[MAX_COMMANDS - 1], int num);
 void list_directory(void);
-int path_func(void);
+int path_func(char **args);
 void printu(const char *format, ...);
 Node *create_node(char *data);
 Node *build_path_list(void);

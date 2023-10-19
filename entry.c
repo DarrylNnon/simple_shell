@@ -14,7 +14,7 @@ void handle_commands(char *args[], char *input)
 
 	if (strcmp(args[0], "exit") == 0)
 	{
-		set_exit(args[0];
+		set_exit(args[0]);
 	}
 	else if (strcmp(args[0], "/bin/ls") == 0)
 	{

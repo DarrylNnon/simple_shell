@@ -4,6 +4,7 @@
 #include <unistd.h>
 
 #define BUFFER_SIZE 1024
+
 /**
  * _getline - is the function used for getting input
  * @size: is the pointer used
@@ -20,34 +21,34 @@ char *_getline(size_t *size)
 	char *line;
 
 	if (start == last)
-		ssize_t read_size = read(STDIN_FILENO, buffer, BUFFER_SIZE);
-	if (read_size == 0)
-		return (NULL);
-	if (read_size < 0)
 	{
-		perror("read");
-		exit(EXIT_FAILURE);
-	}
-	start = buffer;
-	last = buffer + read_size;
+		ssize_t read_size = read(STDIN_FILENO, buffer, BUFFER_SIZE);
+		if (read_size == 0)
+			return (NULL);
+		if (read_size < 0)
+		{
+			perror("read");
+			return (NULL);
+		}
+		last = buffer + read_size;
+		start = buffer;
 	}
 	mid = start;
-
 	while (start < last && *start != '\n')
 		start++;
 	if (start < last)
-		*start++ = '\0';
+		start++;
 	else
-		*start = '\0';
-
+		start = last;
 	line_size = start - mid;
 	line = malloc(line_size + 1);
 	if (!line)
 	{
 		perror("malloc");
-		exit(EXIT_FAILURE);
+		return (NULL);
 	}
-	memcpy(line, mid, line_size + 1);
+	memcpy(line, mid, line_size);
+	line[line_size] = '\0';
 	*size = line_size;
 	return (line);
 }

@@ -4,9 +4,10 @@
  * Return: as specified
  * Author: Nnon and Isaac
  */
-int path_func(void)
+int path_func(char **args)
 {
 	pid_t pid = fork();
+	(void)args;
 
 	if (pid < 0)
 	{

@@ -1,4 +1,17 @@
 #include "shell.h"
+
+/**
+ * execute_builtin - executes a built-in command
+ * @args: the arguments array
+ */
+void execute_builtin(char *args[])
+{
+	if (strcmp(args[0], "setenv") == 0)
+		set_env(args);
+	else if (strcmp(args[0], "unsetenv") == 0)
+		unset_env(args);
+}
+
 /**
  * run_command - is the function to execute user input
  * @input: is the pointer to the string
@@ -22,6 +35,7 @@ int run_command(const char *input)
 	{
 		fprintf(stderr, "Error: could not read the expected number of items\n");
 		return (-1);
+	}
 	if (is_builtin(args))
 	{
 		execute_builtin(args);
@@ -34,16 +48,5 @@ int run_command(const char *input)
 	else
 		printit("Command does not exist\n", STDOUT_FILENO);
 	return (0);
-}
-/**
- * execute_builtin - executes a built-in command
- * @args: the arguments array
- */
-void execute_builtin(char *args[])
-{
-	if (strcmp(args[0], "setenv") == 0)
-		set_env(args);
-	else if (strcmp(args[0], "unsetenv") == 0)
-		unset_env(args);
 }
 
