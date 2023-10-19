@@ -1,11 +1,11 @@
 #include "shell.h"
 /**
- * run_commands - is used to add char to cmds argu
+ * run_cmd - is used to add char to cmds argu
  * @cmd: is the first pointer to arg
  * @op: is the second pointer to arg cmd
  * @num: is the number command input
  */
-void run_commands(char *cmd[MAX_COMMANDS], char *op[MAX_COMMANDS - 1], int num)
+void run_cmd(char *cmd[MAX_COMMANDS], char *op[MAX_COMMANDS - 1], int num)
 {
 	int status = run_command(cmd[0]);
 	int i = 1;

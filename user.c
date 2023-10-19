@@ -2,6 +2,7 @@
 /**
  * user_entry - is the function to accept user entry
  * @input: is the pointer to the string
+ * @size: is the size for the byte
  * Author: Nnon and Isaac
  */
 void user_entry(char *input, size_t size)

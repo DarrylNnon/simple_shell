@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdarg.h>
 /**
- * Variadic function for formatted printing
+ * printu - Variadic function for formatted printing
  * to the standard output (stdout)
+ * @format: is the pointer to the input
  * Authors: Nnon && Isaac
  */
 void printu(const char *format, ...)

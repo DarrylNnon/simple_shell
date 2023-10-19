@@ -8,7 +8,7 @@ void token_input(char *input)
 {
 	int i = 0, j = 0, k = 0;
 	char *arg = malloc(strlen(input) + 1);
-	char **tokens = malloc((strlen(input) / 2 + 1) * sizeof(char*));
+	char **tokens = malloc((strlen(input) / 2 + 1) * sizeof(char *));
 
 	while (1)
 	{
@@ -30,7 +30,7 @@ void token_input(char *input)
 
 	for (i = 0; tokens[i] != NULL; i++)
 	{
-	printf("Token: %s\n", tokens[i]);
+	printu("Token: %s\n", tokens[i]);
 	free(tokens[i]);
 	}
 	free(tokens);

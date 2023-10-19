@@ -1,6 +1,9 @@
 #include "shell.h"
 #include <sys/wait.h>
-
+/**
+ * ls_exe - is used for ls execution
+ * @args: is the pointer array
+ */
 void ls_exe(char *args[])
 {
 	pid_t pid;

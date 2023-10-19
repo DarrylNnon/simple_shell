@@ -3,9 +3,11 @@
 #define MAX_CMD_LEN 256
 #define PROMPT "($) "
 /**
- * Enter the shell mode - allowing users to input command.
+ * mode - allowing users to input command.
+ *
  * It read the command, processes it.
  * It's an interactive function
+ * Return: as specified
  * Authors: Nnon && Isaac
  */
 int mode(void)
