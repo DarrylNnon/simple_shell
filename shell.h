@@ -20,7 +20,14 @@ typedef struct Node
 	struct Node *next;
 } Node;
 
+typedef struct env_list
+{
+	char *name;
+	char *value;
+	struct env_list *next;
+} env_list_t;
 
+int _cd(char **argv, env_list_t **env);
 void execute_command(char *command_path, char *args[]);
 void execute_builtin(char *args[]);
 int is_builtin(char *args[]);
