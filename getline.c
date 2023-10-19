@@ -23,6 +23,7 @@ char *_getline(size_t *size)
 	if (start == last)
 	{
 		ssize_t read_size = read(STDIN_FILENO, buffer, BUFFER_SIZE);
+
 		if (read_size == 0)
 			return (NULL);
 		if (read_size < 0)

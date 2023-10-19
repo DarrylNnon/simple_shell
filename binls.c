@@ -1,6 +1,7 @@
 #include "shell.h"
 /**
  * path_func - is used to find the path environ
+ * @args: is the double pointer to the str
  * Return: as specified
  * Author: Nnon and Isaac
  */
