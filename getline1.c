@@ -5,7 +5,7 @@
  * @info: Parameter struct.
  *
  * Return: The number of bytes read.
- * getLine.c
+ * Auhthor: Isaac and Nnon
  */
 ssize_t write_input(info_t *info)
 {

@@ -4,7 +4,7 @@
  * p_alias - is used to print an alias string
  * @node: the alias node
  * Return: as specified
- * builtin1.c
+ * Authors: Isaac and Nnon
  */
 int p_alias(list_t *node)
 {
@@ -30,7 +30,7 @@ int p_alias(list_t *node)
  * _alias - is used to mimics the alias builtin
  * @info: Structure containing potential arguments.
  *  Return: as specified
- * builtin1.c
+ * Authors: Isaac and Nnon
  */
 int _alias(info_t *info)
 {

@@ -4,7 +4,7 @@
  * @info: Structure containing potential arguments.
  *
  * Return: The new histcount (the updated count of history entries).
- * history.c
+ * Authors: Isaac and Nnon
  */
 int histryRenumba(info_t *info)
 {

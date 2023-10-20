@@ -6,6 +6,7 @@
  *  Return: 1 on delete, 0 otherwise
  * @var: the string env var property
  * getenv.c
+ * Author: Isaac and Nnon
  */
 int envUnset(info_t *info, char *var)
 {
@@ -41,6 +42,7 @@ int envUnset(info_t *info, char *var)
  * @value: the string env var value
  *  Return: as specified
  * getenv.c
+ * Author: Isaac and Nnon
  */
 int setCustmEnv(info_t *info, char *var, char *value)
 {

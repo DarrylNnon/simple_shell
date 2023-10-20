@@ -7,7 +7,7 @@
  * @len: address of len var
  *
  * Return: bytes read
- * getLine.c
+ * Authors: Isaac and Nnon
  */
 ssize_t writeBuffa(info_t *info, char **buf, size_t *len)
 {
