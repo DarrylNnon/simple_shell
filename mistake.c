@@ -4,6 +4,7 @@
  * @a: is the character to print
  * @fd: is the filedescriptor to write to
  * Return: as specified
+ * Author: Isaac and Nnon
  */
 int in_puts(char a, int fd)
 {
@@ -25,6 +26,7 @@ int in_puts(char a, int fd)
  * @input: is the pointer the string to be printed
  * @fd: is the filedescriptor to write to
  * Return: the number of chars put
+ * Authors: Isaac and Nnon
  */
 int _putin(char *input, int fd)
 {
