@@ -1,21 +1,36 @@
 #include "shell.h"
+
 /**
- * set_env - is the function to set builtin environment
- * @args: is the pointer to the array of arguments
+ * _myenv - is used to print the current environment
+ * @info: Structure containing potential arguments.
  * Return: as specified
- * Author: Nnon and Isaac
+ * environ.c
  */
-int set_env(char **args)
+int _myenv(info_t *info)
 {
-	if (args[1] == NULL || args[2] == NULL)
-	{
-	printit("Usage: setenv VARIABLE VALUE\n", STDERR_FILENO);
-	return (-1);
-	}
-	if (setenv(args[1], args[2], 1) == -1)
-	{
-	perror("setenv");
-	return (-1);
-	}
+	prnt_lstStrng(info->env);
 	return (0);
+}
+
+/**
+ * get_env - is used to get the value of an env variable
+ * @info: Structure containing potential arguments
+ * @name: env variable name
+ * Return: as specified
+ */
+char *get_env(info_t *info, const char *name)
+{
+	list_t *node = info->env;
+	char *q;
+
+	while (node)
+	{
+		q = with_strt(node->str, name);
+		if (q && *q)
+		{
+			return (q);
+		}
+		node = node->next;
+	}
+	return (NULL);
 }
