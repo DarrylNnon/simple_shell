@@ -4,6 +4,7 @@
  *_puth - is used to prints an input string
  * @input: is the pointer to string  print
  * Return: as specified
+ * Authors: Isaac and Nnon
  */
 void _puth(char *input)
 {

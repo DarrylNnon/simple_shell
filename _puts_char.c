@@ -5,7 +5,7 @@
  * @str: The string to be printed.
  *
  * Return: Nothing (void).
- * string1.c
+ * Author: Isaac and Nnon
  */
 void putStrng(char *str)
 {
@@ -28,7 +28,7 @@ void putStrng(char *str)
  * @c: The character to print.
  *
  * Return: On success, 1. On error, -1 is returned
- * string1.c
+ * Author: Isaac and Nnon
  */
 int put_caracter(char c)
 {

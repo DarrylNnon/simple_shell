@@ -4,6 +4,7 @@
  * rem_comment - function replaces '#' with empty
  * @buf: address of the string to replace or remove
  * Return: as specified
+ * Authors: Isaac and NNon
  */
 void rem_comment(char *buf)
 {

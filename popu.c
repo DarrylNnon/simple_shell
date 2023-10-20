@@ -4,7 +4,7 @@
  * populate_env_list - is used to populate env linked list
  * @info: Structure containing potential arguments
  * Return: as specified
- * environ.c
+ * Authors: Isaac and Nnon
  */
 int populate_env_list(info_t *info)
 {

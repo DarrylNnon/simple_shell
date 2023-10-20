@@ -1,12 +1,11 @@
 #include "shell.h"
 
-
 /**
  * prnt_lstStrng - Prints "str" element of a linked list.
  * @h: Pointer to the first node of the linked list.
  *
  * Return: The size of the linked list.
- * lists.c
+ * Authors: Isaac and Nnon
  */
 size_t prnt_lstStrng(const list_t *h)
 {
@@ -29,7 +28,7 @@ size_t prnt_lstStrng(const list_t *h)
  * @index: index of node to delete
  *
  * Return: 1 on success, 0 on failure
- * lists.c
+ * Authors: Isaac and Nnon
  */
 int dilitNodeIndex(list_t **head, unsigned int index)
 {
