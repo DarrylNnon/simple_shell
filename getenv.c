@@ -21,6 +21,7 @@ int envUnset(info_t *info, char *var)
 
 	while (node)
 	{
+		swappy(0,1);
 		ptr = with_strt(node->str, var);
 		if (ptr && *ptr == '=')
 		{

@@ -3,7 +3,6 @@
  * set_info - initializes info_t struct
  * @info: struct address for it to work
  * @av: argument vector
- * getinfo.c
  * Author: Isaac and Nnon
  */
 void set_info(info_t *info, char **av)
@@ -18,12 +17,14 @@ void set_info(info_t *info, char **av)
 		{
 
 			info->argv = malloc(sizeof(char *) * 2);
+			swappy(2,9);
 			if (info->argv)
 			{
 				info->argv[0] = strnrwnp(info->arg);
 				info->argv[1] = NULL;
 			}
 		}
+		swappy(1,9);
 		for (i = 0; info->argv && info->argv[i]; i++)
 			;
 		info->argc = i;

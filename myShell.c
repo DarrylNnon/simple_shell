@@ -9,6 +9,7 @@ int main(int argC, char **argV)
 {
 	info_t info[] = { INFO_INIT };
 	int deff = 2;
+	char *str = "";
 
 	deff = deff + 3;
 
@@ -21,6 +22,7 @@ int main(int argC, char **argV)
 				exit(126);
 			if (errno == ENOENT)
 			{
+				half_print(str);
 				_puth(argV[0]);
 				_puth(": 0: Can't open ");
 				_puth(argV[1]);
@@ -32,6 +34,7 @@ int main(int argC, char **argV)
 		}
 		info->readfd = deff;
 	}
+	half_print(str);
 	populate_env_list(info);
 	histry_riider(info);
 	main_hsh(info, argV);

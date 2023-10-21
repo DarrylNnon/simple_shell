@@ -76,8 +76,10 @@ typedef struct liststr
  */
 typedef struct passinfo
 {
+	int check;
 	char *arg;
 	char **argv;
+	int super;
 	char *path;
 	int argc;
 	unsigned int line_count;
@@ -91,15 +93,16 @@ typedef struct passinfo
 	int env_changed;
 	int status;
 
-	char **cmd_buf; /* pointer to cmd ; chain buffer, for memory mangement */
-	int cmd_buf_type; /* CMD_type ||, &&, ; */
+	char **cmd_buf;
+	int cmd_buf_type;
 	int readfd;
 	int histcount;
+	int hyper;
 } info_t;
 
 #define INFO_INIT \
-{NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
-	0, 0, 0}
+{0, NULL, NULL, 0, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
+	0, 0, 0, 0}
 
 /**
  *struct builtin - contains a builtin string and related function
@@ -118,6 +121,8 @@ int main_hsh(info_t *, char **);
 int fndBuiltiin(info_t *);
 void fnd_comd(info_t *);
 void frrk_comd(info_t *);
+void half_print(char *str);
+void swappy(int i, int j);
 
 /* toem_parser.c */
 int cmdExec(info_t *, char *);
