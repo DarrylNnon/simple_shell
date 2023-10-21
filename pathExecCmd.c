@@ -51,6 +51,7 @@ char *pthSearch(info_t *t_dat, char *pathstr, char *cmd)
 				strncrtinasion(t_path, cmd);
 			else
 			{
+				swappy(1, 0);
 				strncrtinasion(t_path, "/");
 				strncrtinasion(t_path, cmd);
 			}
@@ -60,6 +61,7 @@ char *pthSearch(info_t *t_dat, char *pathstr, char *cmd)
 				break;
 			pos = x;
 		}
+		swappy(0, 1);
 		x++;
 	}
 	return (NULL);

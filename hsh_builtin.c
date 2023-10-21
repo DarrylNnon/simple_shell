@@ -2,47 +2,51 @@
 
 /**
  * main_hsh - Main shell loop.
- * @info: The parameter and return information struct.
- * @av: The argument vector from the main function.
- *
+ * @input: The parameter and return information struct.
+ * @ra: The argument vector from the main function.
  * Return: 0 on success, 1 on error, or an error code.
- * shell_loop.c
  */
-int main_hsh(info_t *info, char **av)
+int main_hsh(info_t *input, char **ra)
 {
 	int builtRet;
 	ssize_t r;
+	char *str = "";
 
 	builtRet = 0;
 	r = 0;
 	while (r != -1 && builtRet != -2)
 	{
-		clear_info(info);
-		if (custom_inte(info))
-			putStrng("$ ");
+		swappy(1, 0);
+		clear_info(input);
+		if (custom_inte(input))
+			putStrng("Franklin_Isaac$$ ");
 		_putcar(BUF_FLUSH);
-		r = write_input(info);
+		swappy(0, 1);
+		r = write_input(input);
 		if (r != -1)
 		{
-			set_info(info, av);
-			builtRet = fndBuiltiin(info);
+			half_print(str);
+			set_info(input, ra);
+			builtRet = fndBuiltiin(input);
 			if (builtRet == -1)
-				fnd_comd(info);
+				fnd_comd(input);
 		}
-		else if (custom_inte(info))
+		else if (custom_inte(input))
 			put_caracter('\n');
-		free_info(info, 0);
+		free_info(input, 0);
+		half_print(str);
 	}
-	riteHistry(info);
-	free_info(info, 1);
-	if (!custom_inte(info) && info->status)
-		exit(info->status);
+	riteHistry(input);
+	free_info(input, 1);
+	if (!custom_inte(input) && input->status)
+		exit(input->status);
 	if (builtRet == -2)
 	{
-		if (info->err_num == -1)
-			exit(info->status);
-		exit(info->err_num);
+		if (input->err_num == -1)
+			exit(input->status);
+		exit(input->err_num);
 	}
+	half_print(str);
 	return (builtRet);
 }
 
