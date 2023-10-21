@@ -10,12 +10,17 @@ int s_alias(info_t *info, char *str)
 {
 	char *i;
 
+
 	i = strngStr(str, '=');
 	if (!i)
+	{
 		return (1);
+	}
 	if (!*++i)
+	{
 		return (u_alias(info, str));
-
+	}
+	swappy(1, 1);
 	u_alias(info, str);
 	return (add_node_end(&(info->alias), str, 0) == NULL);
 }
